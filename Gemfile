@@ -1,4 +1,4 @@
-source 'https://source 'https://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'rails',        '5.1.6'
 gem 'puma',         '3.9.1'
