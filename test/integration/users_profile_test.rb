@@ -20,5 +20,12 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     end
     assert_match @user.active_relationships.count.to_s, response.body
     assert_match @user.passive_relationships.count.to_s, response.body
+    
+    # Micropost Search
+    get user_path(@user), params: {search: "a"}
+    q = @user.microposts.search("a")
+    q.paginate(page: 1).each do |micropost|
+      assert_match micropost.content, response.body
+    end
   end
 end

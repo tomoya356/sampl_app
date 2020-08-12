@@ -29,4 +29,25 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     get users_path
     assert_select 'a', text: 'delete', count: 0
   end
+  
+  test "users search" do
+    log_in_as(@admin)
+    #All users
+    get users_path, params: {search: ""}
+    User.paginate(page:1).each do |user|
+      assert_select 'a[href=?]', user_path(user), text:user.name
+    end
+    
+    #User search
+    get users_path, params: {search: "a"}
+    q = User.search("a")
+    q.paginate(page:1).each do |user|
+      assert_select 'a[href=?]', user_path(user), text:user.name
+    end
+    
+    # User search (no result)
+    get users_path, params: {search: "xxxx"}
+      assert_match "Couldn't find any user.", response.body
+    end  
+  
 end

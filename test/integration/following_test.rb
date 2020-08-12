@@ -59,5 +59,12 @@ class FollowingTest < ActionDispatch::IntegrationTest
     @user.feed.paginate(page: 1).each do |micropost|
       assert_match CGI.escapeHTML(micropost.content), response.body
     end
+    
+    # Micropost Search
+    get root_path, params: {search: "a"}
+    q = @user.feed.search("a")
+    q.paginate(page: 1).each do |micropost|
+      assert_match CGI.escapeHTML(micropost.content), response.body
+    end
   end
 end
