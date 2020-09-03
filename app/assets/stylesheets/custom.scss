@@ -11,10 +11,24 @@ $gray-medium-light: #eaeaea;
   box-sizing: border-box;
 }
 
+/* bootstrap */
+.no-gutters {
+  margin: 0;
+  padding: 0;
+}
+
+.no-gutters {
+ [class*="col-"] {
+  margin: 0;
+  padding: 0;
+ }
+}
+
 /* universal */
 
 body {
   padding-top: 60px;
+  background-color: #F5F5F5;
 }
 
 section {
@@ -48,10 +62,13 @@ h1 {
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
   color: $gray-light;
+}
+
+a {
+  color: black;
 }
 
 p {
@@ -59,21 +76,56 @@ p {
   line-height: 1.7em;
 }
 
+span {
+  margin: 0px;
+  padding: 0px;
+}
 
 /* header */
+header {
+  background-color: white;
+  a {
+  color: black;
+  }
+}
+
+/* search */
+.search-form {
+  float: left;
+  overflow: auto;
+  margin: 10px;
+  width: 300px;
+  .input-group {
+    width: 300px;
+    .form-control {
+      width: 250px;
+    }
+    .btn {
+      width: 50px;
+    }
+  }
+}
 
 #logo {
   float: left;
-  margin-right: 10px;
+  margin-right: 200px;
   font-size: 1.7em;
-  color: white;
+  color: black;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
+    opacity: 0.7;
     text-decoration: none;
+  }
+}
+
+nav {
+  a {
+    &:hover {
+      color: black;
+    }
   }
 }
 
@@ -111,64 +163,37 @@ footer {
   @include box_sizing;
 }
 
-// sidebar
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
-
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
+// sidebarf
+// aside {
+//   section.user_info {
+//     margin-top: 20px;
+//   }
+//   section {
+//     padding: 10px 0;
+//     margin-top: 20px;
+//     &:first-child {
+//       border: 0;
+//       padding-top: 0;
+//     }
+//     span {
+//       display: block;
+//       margin-bottom: 3px;
+//       line-height: 1;
+//     }
+//     h1 {
+//       font-size: 1.4em;
+//       text-align: left;
+//       letter-spacing: -1px;
+//       margin-bottom: 3px;
+//       margin-top: 0px;
+//     }
+//   }
+// }
 
 .gravatar_edit {
   margin-top: 10px;
 }
 
-.stats {
-  overflow: auto;
-  margin-top: 0;
-  padding: 0;
-  a {
-    float: left;
-    padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
-    &:hover {
-      text-decoration: none;
-      color: blue;
-    }
-  }
-  strong {
-    display: block;
-  }
-}
 
 .user_avatars {
   overflow: auto;
@@ -241,33 +266,26 @@ input {
 /* microposts */
 
 .microposts {
+  width: 100%;
+  padding-left: 0;
+  text-align: center;
   list-style: none;
-  padding: 0;
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
-  }
-  .content {
-    display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: solid 1px #eaeaea;
+  .micropost {
+    width: 250px;
+    display: inline-block;
+    margin: 15px;
+    &-info {
+      background-color: red;
+      .user {
+      }
+      .timestamp {
+        color: $gray-light;
+        display: block;
+      }
     }
-  }
-  .timestamp {
-    color: $gray-light;
-    display: block;
-    margin-left: 60px;
-  }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
   }
 }
 
@@ -285,19 +303,47 @@ span.picture {
   }
 }
 
+/* stats */
 
-/* search */
-.search_form {
-  overflow: auto;
-  margin: 10px;
-  float: right;
-  .input-group {
-    width: 300px;
-    .form-control {
-      width: 250px;
+.stats {
+  font-size: 16px;
+  display: flex;
+  margin-bottom: 20px;
+  padding: 0;
+  li {
+    list-style: none;
+    margin-right: 40px;
+    a {
+      color: black;
+      &:first-child {
+        padding-left: 0;
+        border: 0;
+      }
+      &:hover {
+        text-decoration: none;
+        cursor: pointer;
+      }
     }
-    .btn {
-      width: 50px;
+  }
+}
+
+
+/* show */
+.user_info {
+  color: black;
+  margin: 30px 0;
+  .user_info_left {
+    margin-right: 60px;
+    .gravatar {
+      margin: 20px 0px 20px 0px;
+      float: right;
+    }
+  }
+  .user_info_right {
+    h2 {
+      color: black;
+      font-size: 28px;
+      text-align: left;
     }
   }
 }
