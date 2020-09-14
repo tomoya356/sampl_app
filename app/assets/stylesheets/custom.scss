@@ -81,6 +81,10 @@ span {
   padding: 0px;
 }
 
+.gravatar {
+  border-radius: 50%;
+}
+
 /* header */
 header {
   background-color: white;
@@ -194,7 +198,6 @@ footer {
   margin-top: 10px;
 }
 
-
 .user_avatars {
   overflow: auto;
   margin-top: 10px;
@@ -279,11 +282,15 @@ input {
     margin: 15px;
     &-info {
       background-color: red;
-      .user {
+      padding: 5px;
+      &-top {
+        
       }
-      .timestamp {
-        color: $gray-light;
-        display: block;
+      &-bottom {
+        .timestamp {
+          color: $gray-light;
+          display: block;
+        }
       }
     }
   }

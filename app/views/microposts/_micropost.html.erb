@@ -4,10 +4,18 @@
   </div>
   <% unless request.path.include?("users") %>
     <div class="micropost-info">
-      <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-      <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-      <div class="timestamp">
-        投稿日 <%= time_ago_in_words(micropost.created_at) %> ago.
+      <div class="micropost-info-top">
+        <span class="gravatar">
+          <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+        </span>
+        <span class="username">
+　　　　  <%= link_to micropost.user.name, micropost.user %>
+        </span>
+      </div>
+      <div class="micropost-info-bottom">
+        <div class="timestamp">
+          <%= time_ago_in_words(micropost.created_at) %> ago.
+        </div>
       </div>
       <% if current_user?(micropost.user) %>
         <%= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" } %>
