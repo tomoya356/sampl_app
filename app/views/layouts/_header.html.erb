@@ -3,14 +3,16 @@
 <header class="navbar navbar-fixed-top">
   <div class="container">
     <%= link_to "Snap Post", root_path, id: "logo" %>
-    <div class="search-form">
-      <%= render 'shared/search' %>
-    </div>
+    <% if logged_in? %>
+      <div class="search-form">
+        <%= render 'shared/search' %>
+      </div>
+    <% end %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "ホーム", root_path %></li>
         <% if logged_in? %>
-          <li><%= link_to "投稿", microposts_path %></li>
+          <li><%= link_to "投稿", new_micropost_path %></li>
           <li><%= link_to "ユーザー", users_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
