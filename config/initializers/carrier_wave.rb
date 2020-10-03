@@ -7,6 +7,6 @@ if Rails.env.production?
       :aws_access_key_id     => 'AKIAS4UR4KG4A3GZQA5R',
       :aws_secret_access_key => 'SHglidQRq7syu77mhaZt+ErZdV6GXnOZL95i1cq3'
     }
-    config.fog_directory     =  'sample.app.takamori'
+    config.fog_directory     =  'bucket-sample002'
   end
 end
