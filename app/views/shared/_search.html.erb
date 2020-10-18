@@ -1,7 +1,7 @@
 <%= form_tag(yield(:path), method: :get, class: "input-group") do %>
   <%= text_field_tag :search, params[:search], placeholder: "検索", class: 'form-control' %>
   <span class="input-group-btn">
-    <%= button_tag sanitize('<i class="fa fa-search" aria-hidden="true"></i>'), :type => "submit", :name => nil, class: "btn btn-secondary" %>
+    <%= button_tag sanitize('<i class="fa fa-search" aria-hidden="true"></i>'), :type => "submit", :name => nil, class: "btn" %>
   </span>
 <% end %>
 

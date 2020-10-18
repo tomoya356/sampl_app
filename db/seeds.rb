@@ -27,9 +27,23 @@ User.create!(name:  "Example User2",
 end
 
 users = User.order(:created_at).take(6)
-10.times do
+3.times do
   content = Faker::Lorem.sentence(5)
-  picture = open "#{Rails.root}/app/assets/images/suzu.jpg"
+  picture = open "#{Rails.root}/app/assets/images/IMG_5740.jpeg"
+  users.each { |user| user.microposts.create!(content: content,
+                                              picture: picture) }
+end
+
+3.times do
+  content = Faker::Lorem.sentence(5)
+  picture = open "#{Rails.root}/app/assets/images/IMG_5741.jpeg"
+  users.each { |user| user.microposts.create!(content: content,
+                                              picture: picture) }
+end
+
+3.times do
+  content = Faker::Lorem.sentence(5)
+  picture = open "#{Rails.root}/app/assets/images/IMG_5742.jpeg"
   users.each { |user| user.microposts.create!(content: content,
                                               picture: picture) }
 end

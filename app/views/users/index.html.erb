@@ -2,26 +2,26 @@
 <% provide(:search_name, 'user search') %>
 <% provide(:path, users_path) %>
 
-<h1>All users</h1>
 
 <div class="row">
-  <div class="search_form">
-    <%= render 'shared/search' %> 　<!-- searchパーシャル呼出 -->
+  <div class="col-md-12">
+    <div class="heading">
+      <h1>ユーザー</h1>
+    </div>
+    
+    <%= will_paginate %>
+    
+    <% unless @users.empty? %>
+      <ul class="users">
+        <%= render @users %>
+      </ul>
+    <% else %>
+      <p>
+        ユーザーが見つかりませんでした。<br>
+        お探しのユーザー名をご確認ください。
+      </p>
+    <% end %>
+    
+    <%= will_paginate %>
   </div>
 </div>
-  
-<%= will_paginate %>
-
-<% unless @users.empty? %>
-  <ul class="users">
-    <%= render @users %>
-  </ul>
-<% else %>
-  <p>
-    Couldn't find any user.<br>
-    Please check username you are looking for.
-  </p>
-<% end %>
-
-<%= will_paginate %>
-
