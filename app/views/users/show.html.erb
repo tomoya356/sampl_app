@@ -8,6 +8,7 @@
       <div class="row no-gutters">
         <div class="col-md-4">
           <div class="user_info_left">
+            <%= image_tag @user.picture.url if @user.picture? %>
             <%= gravatar_for @user %>　<!-- ユーザー写真 -->
           </div>
         </div>

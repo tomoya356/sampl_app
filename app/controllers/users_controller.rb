@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
+    # @user.picture.retrieve_from_cache! @user.picture_cache
     if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
@@ -37,6 +38,10 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
+      # if !@user.picture.present?
+      #   @user.picture.retrieve_from_cache! @user.picture_cache
+      # end
+      # @user.picture_cache = @user.picture.cache_name
     else
       render 'edit'
     end
@@ -65,7 +70,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
+      params.require(:user).permit(:picture, :name, :email, :password,
                                    :password_confirmation)
     end
     

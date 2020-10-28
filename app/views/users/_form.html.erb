@@ -1,5 +1,10 @@
 <%= form_for(@user, url: yield(:url)) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+  
+  <div class="field">
+    <%= f.label :picture %>
+    <%= f.file_field :picture %>
+  </div>
 
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %>
