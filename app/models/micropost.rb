@@ -3,6 +3,7 @@ class Micropost < ApplicationRecord
   attr_accessor :picture_cache
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
+  mount_uploader :img, PictureUploader
   validates :user_id, presence: true
   validates :picture, presence: true
   validates :content, length: { maximum: 140 }

@@ -1,7 +1,10 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="heading">
-      <h1>通 知</h1>
+    <div id="info">
+      <div class="crim sec-ttl">
+        NOTIFICATION
+        <span class="bar"></span>
+      </div>
     </div>
     <%= link_to "通知削除", notifications_path(@notifications), method: :delete ,class: "fas fa-trash" %>
     <% if @notifications.exists? %>

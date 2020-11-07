@@ -1,8 +1,11 @@
 <% provide(:title, "Log in") %>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <div class="heading">
-      <h1>ログイン</h1>
+    <div id="info">
+      <div class="crim sec-ttl">
+        LOG IN
+        <span class="bar"></span>
+      </div>
     </div>
     <%= form_for(:session, url: login_path) do |f| %>
 
@@ -21,6 +24,6 @@
       <%= f.submit "ログイン", class: "btn" %>
     <% end %>
 
-    <p>登録がまだの方 <%= link_to "新規登録", signup_path %></p>
+    <p>登録がまだの方 <b><%= link_to "新規登録", signup_path %></b></p>
   </div>
 </div>

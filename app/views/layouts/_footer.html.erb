@@ -1,16 +1,15 @@
 <footer class="footer">
-  <div class="container">
   <small>
-    The <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-    by <a href="http://www.michaelhartl.com/">Michael Hartl</a>
+    <div class="ttl crim">
+      <%= link_to "SNAP MARKET", root_path, id: "logo" %>
+    </div>
   </small>
-  <nav>
+  <nav class="crim">
     <ul>
-      <li><%= link_to "このサイトについて", about_path %></li>
-      <li><%= link_to "ヘルプ", help_path %></li>
-      <li><%= link_to "コンタクト", contact_path %></li>
-      <li><a href="http://news.railstutorial.org/">ニュース</a></li>
+      <li><%= link_to "ABOUT", about_path %></li>
+      <li><%= link_to "HELP", help_path %></li>
+      <li><%= link_to "CONTACT", contact_path %></li>
+      <li><a href="http://news.railstutorial.org/">NEWS</a></li>
     </ul>
   </nav>
-  </div>
 </footer>

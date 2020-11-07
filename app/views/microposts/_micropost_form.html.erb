@@ -1,7 +1,8 @@
-<div class="col-md-4"></div>
-<div class="col-md-5">
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+  <div class="micropost_btn">
+    <%= f.submit "✔", class: "btn" %>
+  </div>
   <div class="micropost_pick">
     <div class="micropost_pick__picture">
       <%= f.file_field :picture,  accept: 'image/jpeg,image/gif,image/png', class: "btn" %>
@@ -10,12 +11,7 @@
       <%= f.text_area :content, placeholder: "どんなコーディネートを組んだ？" %>
     </div>
   </div>
-  <div class="micropost_btn">
-    <%= f.submit "投稿", class: "btn" %>
-  </div>
 <% end %>
-</div>
-<div class="col-md-3"></div>
 
 <script type="text/javascript">
   $('#micropost_picture').bind('change', function() {
