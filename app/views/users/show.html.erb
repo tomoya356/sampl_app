@@ -14,14 +14,16 @@
       <div class="row no-gutters">
         <div class="col-md-4">
           <div class="user_info_left">
-            <%= image_tag @user.picture.url if @user.picture? %>
+            <%= image_tag @user.img.url if @user.img? %>
             <%= gravatar_for @user %>　<!-- ユーザー写真 -->
           </div>
         </div>
         <div class="col-md-8">
           <section class="user_info_right">
-            <h2><%= @user.name %></h2>　<!-- ユーザー名 -->
-            <%= render 'shared/follow_form' if logged_in? %>　<!-- フォローボタン -->
+            <div class="user_info_right__top">
+              <h2><%= @user.name %></h2>　<!-- ユーザー名 -->
+              <%= render 'shared/follow_form' if logged_in? %>　<!-- フォローボタン -->
+            </div>
             <%= render 'shared/stats' %>  <!-- 統計 -->
           </section>
         </div>

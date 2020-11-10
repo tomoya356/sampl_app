@@ -58,7 +58,9 @@ textarea {
   }
 }
 
-
+.alert {
+  margin-top: 20px;
+}
 
 /* typography */
 h1, h2, h3, h4, h5, h6 {
@@ -166,6 +168,13 @@ input {
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
+  }
+}
+
+.field {
+  margin-bottom: 10px;
+  .img-btn {
+    border: none;
   }
 }
 
@@ -305,11 +314,8 @@ footer {
 
 .users.follow {
   padding: 0;
+  
 }
-
-
-
-
 
 
 /* home_not_logged_in */
@@ -383,26 +389,46 @@ span.picture {
 
 
 
-/* user show */
+/* user show & micropost show*/
 .user_info {
   color: black;
   margin: 30px 0;
   .user_info_left {
     margin-right: 60px;
+    a {
+      float: right;
+    }
     .gravatar {
       margin: 20px 0px 20px 0px;
       float: right;
     }
   }
   .user_info_right {
-    h2 {
-      color: black;
-      font-size: 28px;
-      text-align: left;
+    margin-right: 150px;
+    &__top {
+      margin: 20px 0 10px 0;
+      display: flex;
+      h2 {
+        color: black;
+        font-size: 34px;
+        text-align: left;
+        margin: 0;
+      }
     }
   }
 }
 
+#follow_form {
+  margin-left: 30px;
+  .btn-follow {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .btn-unfollow {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
 
 
 /* user edit */
@@ -521,6 +547,7 @@ span.picture {
 .details_sub {
   padding: 30px;
   margin-left: 25px;
+  margin-right: 150px;
   border-radius: 5px;
   border: 2px #ddd solid;
   .img_content {
@@ -529,12 +556,21 @@ span.picture {
       font-size: 20px;
     }
   }
-  .datetime {
+  .img_content_bottom {
     padding-top: 10px;
     border-top: 1px #ddd solid;
-    p {
-      font-size: 15px;
-      color: #888;
+    .datetime {
+      p {
+        font-size: 15px;
+        color: #888;
+      }
+    }
+    a {
+      float: right;
+      :hover {
+        color: #000000;
+        opacity: 0.7;
+      }
     }
   }
 }

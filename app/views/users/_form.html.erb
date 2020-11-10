@@ -1,10 +1,5 @@
 <%= form_for(@user, url: yield(:url)) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  
-  <div class="field">
-    <%= f.label :img %>
-    <%= f.file_field :img, accept: 'image/jpeg,image/gif,image/png', class: "btn" %>
-  </div>
 
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %>

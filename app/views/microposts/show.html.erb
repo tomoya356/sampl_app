@@ -10,8 +10,10 @@
         </div>
         <div class="col-md-8">
           <section class="user_info_right">
-            <h2><%= @micropost.user.name %></h2>　<!-- ユーザー名 -->
-            <%= render 'shared/follow_form' if logged_in? %>　<!-- フォローボタン -->
+            <div class="user_info_right__top">
+              <h2><%= @micropost.user.name %></h2>　<!-- ユーザー名 -->
+              <%= render 'shared/follow_form' if logged_in? %>　<!-- フォローボタン -->
+            </div>
             <%= render 'shared/stats' %>  <!-- 統計 -->
           </section>
         </div>
@@ -33,12 +35,16 @@
           <div class="img_content">
             <p><%= @micropost.content %></p>    
           </div>
-          <div class="datetime">
-            <p><i class="far fa-clock"></i> <%= @micropost.created_at.to_s(:datetime_jp) %></p>
+          <div class="img_content_bottom">
+            <div class="datetime">
+              <p><i class="far fa-clock"></i> <%= @micropost.created_at.to_s(:datetime_jp) %></p>
+            </div>
+            <% if current_user?(@micropost.user) %>
+              <%= link_to @micropost, method: :delete, data: { confirm: "You sure?" } do %>
+                <i class="fas fa-trash-alt delete"></i>
+              <% end %>
+            <% end %>
           </div>
         </div>
-        <% if current_user?(@micropost.user) %>
-          <%= link_to "delete", @micropost, method: :delete, data: { confirm: "You sure?" } %>
-        <% end %>
       </div>
 </div>
